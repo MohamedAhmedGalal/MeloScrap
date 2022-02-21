@@ -1,19 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Feb  6 14:37:48 2022
-
-@author: mohamad.galal
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Feb  6 10:33:20 2022
-
-@author: mohamad.galal
-"""
-
-# -*- coding: utf-8 -*-
-"""
 Created on Thu Feb  3 11:31:41 2022
 
 @author: mohamad.galal
