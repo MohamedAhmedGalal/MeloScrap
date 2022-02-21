@@ -5,6 +5,9 @@ Having a folder of your popular composer/singer has become an old fashion, you s
 So, be it.... Let’s create our favorite songs folder using web scraping super power.
 A famous Arabic site is called 'arab-zik.com' almost contains most of arabic melodies/songs.
 Selenium library has been used to web scrap this site, and download all songs/melodies of one selected singer/composer.
+prerequisites:
+1- selenium
+2-chromedriver with an accessable path location.
 
 Needed XPATH location for needed elements in the website have been fetched first.
 Number of total number of songs/melodies present in web page has been known from the XPATH of the last melody. For OMAR KHAIRAT web page , the last melody XPATH is specifically "//*[@id="tous_les_titre"]/div/div/table/tbody/tr[234]/td[2]/a/i" ,so the last number will be “234”.
