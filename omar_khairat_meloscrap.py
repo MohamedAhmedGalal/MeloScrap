@@ -14,9 +14,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import os
+from selenium.webdriver.common import keys
+from selenium.common.exceptions import TimeoutException
 
 # Specify the folder to download into
-down_directory='D:\scraped_musi'
+down_directory='D:\scraped_musi'  #---------------TO EDIT __________________________________________________________
 
 
 # Specify the webbrowser options:    
@@ -35,7 +37,7 @@ options.add_experimental_option('prefs', prefs)
 
 
 # 5- specify webdriver location(https://chromedriver.chromium.org/)
-webdriver_path='D:\chromedriver.exe'
+webdriver_path='D:\chromedriver.exe'     #---------------TO EDIT __________________________________________________________
 
 # 6-create a driver object as a webdriver,using the above specified options
 driver = webdriver.Chrome(webdriver_path,options=options)
@@ -44,6 +46,52 @@ driver = webdriver.Chrome(webdriver_path,options=options)
 # Open the site to download from:
 web_url='https://arab-zik.com/en/artist/2143-omar-khairat#google_vignette'
 driver.get(web_url)
+
+
+
+def scroll_until() :
+    scrollable=True
+
+    while scrollable==True:
+        # try:
+        xpath_scroll='/html/body/div[1]/main/div/div/div[1]/div[3]/div/div[1]/div/div/span/button'
+        try:
+            time.sleep(1)    
+
+            element = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, xpath_scroll )))
+            button=driver.find_element(By.XPATH,xpath_scroll)
+            href_data = button.get_attribute('href')
+            driver.execute_script("arguments[0].click();", button)
+            scrollable=False
+            
+            print('Show  more found and clicked')
+    
+            
+        except TimeoutException:
+            # time.sleep(5)
+            if href_data is None:
+                time.sleep(1)    
+
+                is_clickable = False   
+                print('to scroll')
+            else:
+                print('Scrolled again')
+
+                time.sleep(1)    
+
+                driver.send_keys(keys.SPACE)  
+                
+                
+for i in range (1,4)   : 
+    time.sleep(1)    
+    
+    scroll_until()    
+    time.sleep(1)    
+
+
+
+
+
 
 
 # To print name of melody being downloaded:
